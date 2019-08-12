@@ -19,7 +19,7 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <title>React App</title>
+    <title>upDRAFT</title>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
@@ -34,5 +34,37 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script>
+        
+        <script>
+        $(document).ready(function () {
+
+$('#sidebarCollapse').on('click', function () {
+    $('#sidebar, #content').toggleClass('active');
+});
+
+$('#sidebarCollapse2').on('click', function () {
+    $('#sidebar, #content').toggleClass('active');
+});
+
+
+});
+
+
+function handleMousePos(event) {
+      var mouseClickWidth = event.clientX;
+      if( ($(window).width() < 1024) && (mouseClickWidth>=250) && $('#sidebar').hasClass('active')){
+        $('#sidebar, #content').toggleClass('active');
+           }
+}
+
+document.addEventListener("click", handleMousePos);
+
+</script>
+
+
   </body>
 </html>
