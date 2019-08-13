@@ -17,10 +17,16 @@ export default class AddFlightLog extends Component {
                     <input type="text" class="form-control" placeholder="Date"  aria-describedby="basic-addon1" />
                 </div>
 
+                <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">SUA Type</span>
+                    </div>
+                    <input type="text" class="form-control" placeholder="Date"  aria-describedby="basic-addon1" />
+                </div>
+
                 <div class="input-group mb-3 col">
 
                     <div class="input-group-prepend">
-                        <span class="input-group-text" id="basic-addon1">Drone Used</span>
+                        <span class="input-group-text" id="basic-addon1">Airframe Used</span>
                     </div>
                     <input type="text" class="form-control" placeholder="Drone Used" aria-describedby="basic-addon1" />
                 </div>
@@ -36,7 +42,7 @@ export default class AddFlightLog extends Component {
                 <div class="input-group mb-3 col">
 
                     <div class="input-group-prepend">
-                        <span class="input-group-text" id="basic-addon1">Notes</span>
+                        <span class="input-group-text" id="basic-addon1">Flight Details</span>
                     </div>
                     <input type="text" class="form-control" placeholder="Notes"  aria-describedby="basic-addon1" />
                 </div>

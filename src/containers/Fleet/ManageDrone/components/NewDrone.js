@@ -12,7 +12,7 @@ export default class NewDrone extends Component {
                 <div className="input-group mb-3 col">
 
                     <div className="input-group-prepend">
-                        <span className="input-group-text" id="basic-addon1">Drone Name</span>
+                        <span className="input-group-text" id="basic-addon1">Drone Make</span>
                     </div>
                     <input type="text" className="form-control" placeholder="Drone Name"  aria-describedby="basic-addon1" />
                 </div>
@@ -28,7 +28,7 @@ export default class NewDrone extends Component {
                 <div className="input-group mb-3 col">
 
                     <div className="input-group-prepend">
-                        <span className="input-group-text" id="basic-addon1">Drone Make</span>
+                        <span className="input-group-text" id="basic-addon1">Drone Size</span>
                     </div>
                     <input type="text" className="form-control" placeholder="Drone Make"  aria-describedby="basic-addon1" />
                 </div>
@@ -44,7 +44,7 @@ export default class NewDrone extends Component {
                 <div className="input-group mb-3 col">
 
                     <div className="input-group-prepend">
-                        <span className="input-group-text" id="basic-addon1">Size</span>
+                        <span className="input-group-text" id="basic-addon1">Motor Type</span>
                     </div>
                     <input type="text" className="form-control" placeholder="Size"  aria-describedby="basic-addon1" />
                 </div>
@@ -52,7 +52,15 @@ export default class NewDrone extends Component {
                 <div className="input-group mb-3 col">
 
                     <div className="input-group-prepend">
-                        <span className="input-group-text" id="basic-addon1">Power</span>
+                        <span className="input-group-text" id="basic-addon1">Number of Motors</span>
+                    </div>
+                    <input type="text" className="form-control" placeholder="Number-Motors"  aria-describedby="basic-addon1" />
+                </div>
+
+                <div className="input-group mb-3 col">
+
+                    <div className="input-group-prepend">
+                        <span className="input-group-text" id="basic-addon1">Engine Size</span>
                     </div>
                     <input type="text" className="form-control" placeholder="Power (KV)"  aria-describedby="basic-addon1" />
                 </div>
@@ -60,20 +68,50 @@ export default class NewDrone extends Component {
                 <div className="input-group mb-3 col">
 
                     <div className="input-group-prepend">
-                        <span className="input-group-text" id="basic-addon1">Fuel Type</span>
+                        <span className="input-group-text" id="basic-addon1">Power Source</span>
                     </div>
-                    <input type="text" className="form-control" placeholder="Fuel Type"  aria-describedby="basic-addon1" />
+                    <input type="text" className="form-control" placeholder="Power Source"  aria-describedby="basic-addon1" />
                 </div>
 
                 <div className="input-group mb-3 col">
 
                     <div className="input-group-prepend">
-                        <span className="input-group-text" id="basic-addon1">Blah</span>
+                        <span className="input-group-text" id="basic-addon1">Prop Size</span>
                     </div>
-                    <input type="text" className="form-control" placeholder="Blah"  aria-describedby="basic-addon1" />
+                    <input type="text" className="form-control" placeholder="Prop-Size"  aria-describedby="basic-addon1" />
                 </div>
 
+                                <div className="input-group mb-3 col">
 
+                    <div className="input-group-prepend">
+                        <span className="input-group-text" id="basic-addon1">Flight Control System</span>
+                    </div>
+                    <input type="text" className="form-control" placeholder="FC"  aria-describedby="basic-addon1" />
+                </div>
+
+                                <div className="input-group mb-3 col">
+
+                    <div className="input-group-prepend">
+                        <span className="input-group-text" id="basic-addon1">Control TX</span>
+                    </div>
+                    <input type="text" className="form-control" placeholder="ControlTX"  aria-describedby="basic-addon1" />
+                </div>
+
+                <div className="input-group mb-3 col">
+
+                    <div className="input-group-prepend">
+                        <span className="input-group-text" id="basic-addon1">Control RX</span>
+                    </div>
+                    <input type="text" className="form-control" placeholder="ControlRX"  aria-describedby="basic-addon1" />
+                </div>
+
+                <div className="input-group mb-3 col">
+
+                    <div className="input-group-prepend">
+                        <span className="input-group-text" id="basic-addon1">Notes</span>
+                    </div>
+                    <input type="text" className="form-control" placeholder="Notes"  aria-describedby="basic-addon1" />
+                </div>
 
 
       </div>

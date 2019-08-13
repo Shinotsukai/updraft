@@ -12,7 +12,7 @@ export default class Header extends Component {
     {/* Topbar Navbar */}
     <ul className="navbar-nav ml-auto">
       {/* Nav Item - Alerts */}
-      <li className="nav-item dropdown  mx-1">
+      <li className="nav-item dropdown no-arrow mx-1">
         <a className="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <i className="fas fa-bell fa-fw" />
           {/* Counter - Alerts */}

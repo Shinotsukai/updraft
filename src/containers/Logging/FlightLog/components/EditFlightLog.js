@@ -11,9 +11,10 @@ export default class EditFlightLog extends Component {
         <div className="mb-2">
                <ul class="list-group list-group-flush DroneManage">
                 <li class="list-group-item">Date</li>
-                <li class="list-group-item">Drone Used</li>
+                <li class="list-group-item">SUA Type</li>
+                <li class="list-group-item">Airframe Used</li>
                 <li class="list-group-item">Flight Time</li>
-                <li class="list-group-item">Notes</li>
+                <li class="list-group-item">Flight Details</li>
 
 
               </ul>

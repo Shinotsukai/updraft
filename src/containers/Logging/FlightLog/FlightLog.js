@@ -22,15 +22,17 @@ export default class FlightLog extends Component {
           <thead className="thead-dark">
             <tr>
               <th>Date</th>
-              <th>Drone Used</th>
+              <th>SUA Type</th>
+              <th>Airframe</th>
               <th>Flight Time</th>
-              <th>Notes</th>
+              <th>Flight Details</th>
               <th></th>
             </tr>
           </thead>
           <tbody>
            <tr >
               <td >08/08/2019</td>
+              <td>Multi-Rotor</td>
               <td>KX-5</td>
               <td>00:10</td>
               <td>Freestyle Practice</td>
@@ -38,7 +40,8 @@ export default class FlightLog extends Component {
             </tr>
 
                <tr >
-              <td >08/08/2019</td>
+               <td >08/08/2019</td>
+              <td>Multi-Rotor</td>
               <td>KX-5</td>
               <td>00:10</td>
               <td>Freestyle Practice</td>
@@ -46,7 +49,8 @@ export default class FlightLog extends Component {
             </tr>
 
                <tr >
-              <td >08/08/2019</td>
+               <td >08/08/2019</td>
+              <td>Multi-Rotor</td>
               <td>KX-5</td>
               <td>00:10</td>
               <td>Freestyle Practice</td>
