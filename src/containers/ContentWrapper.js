@@ -5,6 +5,9 @@ import '../assets/css/core.css';
 import '../assets/css/style.css';
 import Test from './Test/Test';
 import ManageDrone from './Fleet/ManageDrone/ManageDrone';
+import NewDrone from './Fleet/ManageDrone/components/NewDrone';
+import EditDrone from './Fleet/ManageDrone/components/EditDrone';
+import ViewDrone from './Fleet/ManageDrone/components/ViewDrone';
 import ProjectList from './Projects/ProjectList';
 import Project from './Projects/Listing/Project';
 import ManageCheckList from './Projects/ManageChecklist';
@@ -21,7 +24,10 @@ export default class ContentWrapper extends Component {
                     <Route path="/Projects/ProjectList" component={ProjectList} />
                     <Route path="/Projects/Project" component={Project} />
                     <Route path="/Projects/ManageCheckList" component={ManageCheckList} />
-                    <Route path="/Fleet/ManageDrone" component={ManageDrone} />
+                    <Route exact path="/Fleet/ManageDrone" component={ManageDrone} />
+                    <Route exact path="/Fleet/ManageDrone/NewDrone" component={NewDrone} />
+                    <Route path="/Fleet/ManageDrone/EditDrone/:id" component={EditDrone} />
+                    <Route exact path="/Fleet/ManageDrone/ViewDrone/:id" component={ViewDrone} />
                     <Route path="/Logging/FlightLog" component={FlightLog} />
                 </Switch>
                 

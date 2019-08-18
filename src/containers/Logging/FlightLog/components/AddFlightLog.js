@@ -60,7 +60,7 @@ export default class AddFlightLog extends Component {
       </div>
     </div>
   </div>
-</div>
+
         )
     }
 }
