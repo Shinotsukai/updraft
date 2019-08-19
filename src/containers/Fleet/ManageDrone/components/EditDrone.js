@@ -180,7 +180,7 @@ export default class EditDrone extends Component {
     <div className="modal-content">
    <div className="card text-center">
    
-        <h5 className="card-header mb-2">Add New Drone</h5>
+        <h5 className="card-header mb-2">Edit Drone</h5>
         <div className="mb-2">
                 <div className="input-group mb-3 col">
 

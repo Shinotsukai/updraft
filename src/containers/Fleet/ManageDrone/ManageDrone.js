@@ -2,9 +2,6 @@
 
 import React, { Component } from 'react';
 import {NavLink} from 'react-router-dom';
-import ViewDrone from './components/ViewDrone';
-import EditDrone from './components/EditDrone';
-import NewDrone from './components/NewDrone';
 import axios from 'axios';
 
 

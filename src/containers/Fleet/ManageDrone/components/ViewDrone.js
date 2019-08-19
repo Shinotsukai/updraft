@@ -54,34 +54,75 @@ export default class ViewDrone extends Component {
 
     render() {
         return (
+
+          <div className="row">
+
+            <div className="col-md-6 col-sm-12 mb-4">
+                  <div className="card h-100">
+                        
+                          <div className="card-header mb-2"><h5>Drone Details</h5></div>
+                        <div className="card-body">
+                        <ul class="list-group list-group-flush DroneManage">
+                        <li class="list-group-item">Drone Make: {this.state.droneMake}</li>
+                        <li class="list-group-item">Drone Model: {this.state.droneModel}</li>
+                        <li class="list-group-item">MTOW: {this.state.droneMTOW}</li>
+                        <li class="list-group-item">Size: {this.state.droneSize}</li>
+                        </ul>
+                        </div>
+                  </div>
+            </div>
+
+            <div className="col-md-6 col-sm-12 mb-4">
+                  <div className="card  h-100">
+                        <div className="card-header mb-2"><h5>Engine Details</h5></div>
+                        <div className="card-body">
+                        <ul class="list-group list-group-flush DroneManage">
+                        <li class="list-group-item">Motor Type: {this.state.droneMotorType}</li>
+                        <li class="list-group-item">Number of motors: {this.state.droneMotorNumber}</li>
+                        <li class="list-group-item">Engine Size: {this.state.droneEngineSize}</li>
+                        <li class="list-group-item">Power Source: {this.state.dronePower}</li>
+                        <li class="list-group-item">Prop Size: {this.state.droneProp}</li>
+                        </ul>
+                        </div>
+                  </div>
+            </div>
+
+            <div className="col-md-6 col-sm-12 mb-4">
+                  <div className="card  h-100">
+                        <div className="card-header mb-2"><h5>Control System</h5></div>
+                        <div className="card-body">
+                        <ul class="list-group list-group-flush DroneManage">
+                        <li class="list-group-item">Flight Control System: {this.state.droneFC}</li>
+                        <li class="list-group-item">Control TX: {this.state.droneTX}</li>
+                        <li class="list-group-item">Control RX: {this.state.droneRX}</li>
+                        </ul>
+                        </div>
+                  </div>
+            </div>
+
+            <div className="col-md-6 col-sm-12 mb-4">
+                  <div className="card h-100">
+                        <div className="card-header mb-2"><h5>Additional Information</h5></div>
+                        <div className="card-body">
+                        <ul class="list-group list-group-flush DroneManage">
+                        <li class="list-group-item">Notes: {this.state.droneNotes}</li>
+                        </ul>
+                        </div>
+                  </div>
+
+            </div>
+
+            <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>        
+            </div>
+
+
+
+          </div>
             
   
-    <div class="modal-content">
-   <div className="card text-center">
-        <h5 className="card-header mb-2">Drone Name</h5>
-        <div className="mb-2">
-               <ul class="list-group list-group-flush DroneManage">
-                <li class="list-group-item">Drone Make: {this.state.droneMake}</li>
-                <li class="list-group-item">Drone Model: {this.state.droneModel}</li>
-                <li class="list-group-item">MTOW: {this.state.droneMTOW}</li>
-                <li class="list-group-item">Size: {this.state.droneSize}</li>
-                <li class="list-group-item">Motor Type: {this.state.droneMotorType}</li>
-                <li class="list-group-item">Number of motors: {this.state.droneMotorNumber}</li>
-                <li class="list-group-item">Engine Size: {this.state.droneEngineSize}</li>
-                <li class="list-group-item">Power Source: {this.state.dronePower}</li>
-                <li class="list-group-item">Prop Size: {this.state.droneProp}</li>
-                <li class="list-group-item">Flight Control System: {this.state.droneFC}</li>
-                <li class="list-group-item">Control TX: {this.state.droneTX}</li>
-                <li class="list-group-item">Control RX: {this.state.droneRX}</li>
-                <li class="list-group-item">Notes: {this.state.droneNotes}</li>
-                <li class="list-group-item"><span className="badge badge-info " style={{padding: 10}}>Status</span></li>
-              </ul>
-      </div>
-    </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>        
-      </div>
-    </div>
+
+    
   
 
         )
