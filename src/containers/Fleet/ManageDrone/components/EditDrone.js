@@ -168,7 +168,7 @@ export default class EditDrone extends Component {
         axios.post('http://localhost:5000/Fleet/ManageDrone/update/'+this.props.match.params.id,drone)
         .then(res => console.log(res));
 
-        window.location = '/Fleet/ManageDrone';
+        window.location = '/Dashboard/Fleet/ManageDrone';
     }
 
 

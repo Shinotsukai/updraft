@@ -11,6 +11,7 @@ router.route('/').get((req,res) => {
     .catch(err => res.status(400).json('Error: '+err));
 });
 
+
 //Add new route
 
 router.route('/add').post((req, res) => {
@@ -27,6 +28,7 @@ router.route('/add').post((req, res) => {
     const droneTX = req.body.droneTX;
     const droneRX = req.body.droneRX;
     const droneNotes = req.body.droneNotes;
+    const userID = req.body.userID;
 
     const newDrone = new DroneInfo ({
         droneMake,
@@ -41,7 +43,8 @@ router.route('/add').post((req, res) => {
         droneFC,
         droneTX,
         droneRX,
-        droneNotes
+        droneNotes,
+        userID
     });
 
     newDrone.save()
@@ -84,6 +87,7 @@ router.route('/update/:id').post((req,res) => {
         droneinfo.droneTX = req.body.droneTX;
         droneinfo.droneRX = req.body.droneRX;
         droneinfo.droneNotes = req.body.droneNotes;
+        droneinfo.userID = req.body.userID;
 
         droneinfo.save()
         .then(() => res.json('Drone Updated'))

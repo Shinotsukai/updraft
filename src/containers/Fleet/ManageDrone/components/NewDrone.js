@@ -2,9 +2,12 @@
 
 import React, { Component } from 'react';
 import axios from 'axios';
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
 
 
-export default class NewDrone extends Component {
+class NewDrone extends Component {
+    
 
     constructor(props) {
         super(props);
@@ -20,6 +23,7 @@ export default class NewDrone extends Component {
         this.onChangedroneFC = this.onChangedroneFC.bind(this);
         this.onChangedroneTX = this.onChangedroneTX.bind(this);
         this.onChangedroneRX = this.onChangedroneRX.bind(this);
+        this.onChangedroneNotes = this.onChangedroneNotes.bind(this);
         this.onChangedroneNotes = this.onChangedroneNotes.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
 
@@ -37,13 +41,13 @@ export default class NewDrone extends Component {
             droneTX: '',
             droneRX: '',
             droneNotes: '',
-
+            userID: ''
         }
     }
 
     onChangedroneMake(e) {
         this.setState(
-            {droneMake:e.target.value}
+            {droneMake:e.target.value},
         )
     }
 
@@ -119,6 +123,8 @@ export default class NewDrone extends Component {
         )
     }
 
+
+
     onSubmit(e) {
         e.preventDefault();
 
@@ -135,7 +141,8 @@ export default class NewDrone extends Component {
             droneFC: this.state.droneFC,
             droneTX: this.state.droneTX,
             droneRX: this.state.droneRX,
-            droneNotes: this.state.droneNotes
+            droneNotes: this.state.droneNotes,
+            userID: this.state.userID
         
         }
 
@@ -144,11 +151,22 @@ export default class NewDrone extends Component {
         axios.post('http://localhost:5000/Fleet/ManageDrone/add',drone)
         .then(res => console.log(res));
 
-        window.location = '/Fleet/ManageDrone';
+        window.location = '/Dashboard/Fleet/ManageDrone';
+    }
+
+    componentDidMount(){
+        const { user } = this.props.auth;
+        this.setState({
+            userID: user.id
+        })
+
     }
 
 
     render() {
+
+        
+
         return (
             <form onSubmit={this.onSubmit}>
             
@@ -264,6 +282,14 @@ export default class NewDrone extends Component {
                     <input type="text" className="form-control" value={this.state.droneNotes} onChange={this.onChangedroneNotes} placeholder="Notes"  aria-describedby="basic-addon1" />
                 </div>
 
+                <div className="input-group mb-3 col">
+
+                    <div className="input-group-prepend">
+                        <span className="input-group-text" id="basic-addon1">User ID</span>
+                    </div>
+                    <input type="text" className="form-control"  value={this.state.userID} placeholder="Notes"  aria-describedby="basic-addon1" />
+                </div>
+
             
       </div>
     </div>
@@ -280,3 +306,15 @@ export default class NewDrone extends Component {
         )
     }
 }
+
+NewDrone.propTypes = {
+    auth: PropTypes.object.isRequired
+  };
+  const mapStateToProps = state => ({
+    auth: state.auth
+  });
+  export default connect(
+    mapStateToProps
+  )(NewDrone);
+  
+  

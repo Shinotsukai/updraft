@@ -1,17 +1,21 @@
 import React, { Component } from 'react'
 import ProgressBars from './ProgressBars';
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
 
 
-export default class DashHome extends Component {
+class DashHome extends Component {
+  
     render() {
+      const { user } = this.props.auth;
         return (
 <div>
   {/*weather and welcome*/}
   <div className="row">
     <div className="col-sm-5 mb-4">
       <div className="card">
-        <h5 className="card-header mb-2">Welcome back *insert-name*</h5>
-        <p className="card-text mb-2" style={{padding: 10}}>To be changed but could mention any outstanding tasks / pfco renewal etc</p>
+        <h5 className="card-header mb-2">Welcome back {user.username}</h5>
+        <p className="card-text mb-2" style={{padding: 10}}>Your user id is: {user.id}</p>
       </div>
     </div>
     <div className="col-sm-7 mb-4">
@@ -95,3 +99,12 @@ export default class DashHome extends Component {
     }
 }
 
+DashHome.propTypes = {
+  auth: PropTypes.object.isRequired
+};
+const mapStateToProps = state => ({
+  auth: state.auth
+});
+export default connect(
+  mapStateToProps
+)(DashHome);

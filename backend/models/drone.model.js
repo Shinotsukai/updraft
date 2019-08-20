@@ -20,6 +20,7 @@ const DroneSchema = new Schema ({
     droneTX: {type: String, required: true},
     droneRX: {type: String, required: true},
     droneNotes: {type: String, required: false},
+    userID: {type:String, required: true},
 
 },
 

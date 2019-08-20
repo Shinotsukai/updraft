@@ -1,12 +1,21 @@
 import React, { Component } from 'react'
 import {NavLink} from 'react-router-dom';
 import {UncontrolledCollapse} from 'reactstrap';
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import { logoutUser } from "../../actions/authActions";
 
 
-export default class Sidebar extends Component {
+class Sidebar extends Component {
+
+  onLogoutClick = e => {
+    e.preventDefault();
+    this.props.logoutUser();
+  };
 
     
     render() {
+      const { user } = this.props.auth;
         return (
 <div>
   <nav id="sidebar" style={{overflowY:"auto"}}>
@@ -17,7 +26,10 @@ export default class Sidebar extends Component {
           <a href="#" id="userSubmenu" data-toggle="collapse"  className="dropdown-toggle text-center" width="100%">
             <img className="img-profile rounded-circle mb-2" src="https://source.unsplash.com/QAB-WJcbgJk/60x60" />
             <br />
-            <span className="mr-2  d-lg-inline text-gray-600 ">Valerie Luna</span>
+
+            
+            <span className="mr-2  d-lg-inline text-gray-600 ">UserName: {user.username}</span>
+            
             <br />
             <span className="mr-2  d-lg-inline text-gray-600 ">Remote Pilot</span></a></div>
                 <UncontrolledCollapse toggler="#userSubmenu">
@@ -42,16 +54,16 @@ export default class Sidebar extends Component {
         <li>
         <button className="btn btn-secondary mb-2" >+ Create New Project</button>
       </li>
-      <li><NavLink to="/">Dashboard Home</NavLink></li>
+      <li><NavLink to="/Dashboard/">Dashboard Home</NavLink></li>
        <li>
         <a href="#" id="Projects"  className="dropdown-toggle">Project Management</a>
            <UncontrolledCollapse toggler="#Projects">
         <ul className="dropdown list-unstyled" >
           <li>
-            <NavLink to="/Projects/ProjectList">Project List</NavLink>
+            <NavLink to="/Dashboard/Projects/ProjectList">Project List</NavLink>
           </li>
           <li>
-            <NavLink to="/Projects/ManageCheckList">Manage Check-lists</NavLink>
+            <NavLink to="/Dashboard/Projects/ManageCheckList">Manage Check-lists</NavLink>
           </li>
         </ul>
         </UncontrolledCollapse>
@@ -61,7 +73,7 @@ export default class Sidebar extends Component {
            <UncontrolledCollapse toggler="#Drone">
         <ul className=" list-unstyled" id="pageSubmenu">
           <li>
-            <NavLink to="/Fleet/ManageDrone">Manage Drones</NavLink>
+            <NavLink to="/Dashboard/Fleet/ManageDrone">Manage Drones</NavLink>
           </li>
           <li>
             <NavLink to="#">Manage Batteries</NavLink>
@@ -77,7 +89,7 @@ export default class Sidebar extends Component {
            <UncontrolledCollapse toggler="#Logging">
         <ul className=" list-unstyled" id="pageSubmenu">
           <li>
-            <NavLink to="/Logging/FlightLog">Flight log</NavLink>
+            <NavLink to="/Dashboard/Logging/FlightLog">Flight log</NavLink>
           </li>
           <li>
             <NavLink to="#">Battery Log</NavLink>
@@ -126,7 +138,7 @@ export default class Sidebar extends Component {
         <div className="modal-body">Select "Logout" below if you are ready to end your current session.</div>
         <div className="modal-footer">
           <button className="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-          <NavLink to="#" className="btn btn-danger" style={{color: 'white'}} data-dismiss="modal">Logout</NavLink>
+          <NavLink to="#" className="btn btn-danger" style={{color: 'white'}} onClick={this.onLogoutClick} data-dismiss="modal">Logout</NavLink>
         </div>
       </div>
     </div>
@@ -136,3 +148,17 @@ export default class Sidebar extends Component {
         )
     }
 }
+
+
+Sidebar.propTypes = {
+  logoutUser: PropTypes.func.isRequired,
+  auth: PropTypes.object.isRequired
+};
+const mapStateToProps = state => ({
+  auth: state.auth
+});
+export default connect(
+  mapStateToProps,
+  { logoutUser }
+)(Sidebar);
+

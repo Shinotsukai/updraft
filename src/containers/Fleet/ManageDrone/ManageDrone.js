@@ -3,6 +3,8 @@
 import React, { Component } from 'react';
 import {NavLink} from 'react-router-dom';
 import axios from 'axios';
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
 
 
 //list component
@@ -20,7 +22,7 @@ const DroneList = props => (
               <li class="list-group-item"><span className="badge badge-success" >Available</span></li>
             </ul>
           <div style={{marginTop: 10}}>
-              <NavLink to={"/Fleet/ManageDrone/EditDrone/"+props.droneitem._id}><button className="btn btn-primary btn-circle" title="Edit Drone" ><i className="fas fa-edit" style={{fontSize:"20px", marginLeft:"3px", marginTop:"1px"}}></i></button></NavLink> <NavLink to={"/Fleet/ManageDrone/ViewDrone/"+props.droneitem._id}><button className="btn btn-primary btn-circle" title="View Drone" data-toggle="modal" data-target="#ViewDrone"><i class="fas fa-list" style={{fontSize:"20px", marginLeft:"1px", marginTop:"5px"}}></i></button></NavLink>
+              <NavLink to={"/Dashboard/Fleet/ManageDrone/EditDrone/"+props.droneitem._id}><button className="btn btn-primary btn-circle" title="Edit Drone" ><i className="fas fa-edit" style={{fontSize:"20px", marginLeft:"3px", marginTop:"1px"}}></i></button></NavLink> <NavLink to={"/Dashboard/Fleet/ManageDrone/ViewDrone/"+props.droneitem._id}><button className="btn btn-primary btn-circle" title="View Drone" data-toggle="modal" data-target="#ViewDrone"><i class="fas fa-list" style={{fontSize:"20px", marginLeft:"1px", marginTop:"5px"}}></i></button></NavLink>
           </div>
       </div>
     </div>
@@ -30,7 +32,7 @@ const DroneList = props => (
 )
 
 
-export default class ManageDrone extends Component {
+class ManageDrone extends Component {
 
   //set initial state
 
@@ -43,7 +45,8 @@ export default class ManageDrone extends Component {
 //load data when component mounts
 
   componentDidMount () {
-    axios.get('http://localhost:5000/Fleet/ManageDrone/')
+    const { user } = this.props.auth;
+    axios.get('http://localhost:5000/Fleet/ManageDrone')
     .then(response => {
       this.setState({dronelists: response.data})
     })
@@ -68,7 +71,7 @@ export default class ManageDrone extends Component {
             <div>
                <div className="row mb-4">
                    <div className="col-xs-12 col-sm-8"><h2>Drone Management</h2></div>
-                   <div className="col-xs-12 col-sm-4 text-right"> Home > Fleet Management > <b>Manage Drone</b> <br /> <NavLink to="/Fleet/ManageDrone/NewDrone"><button style={{marginTop: 10}} className="btn btn-secondary">+ New Drone</button></NavLink></div>
+                   <div className="col-xs-12 col-sm-4 text-right"> Home > Fleet Management > <b>Manage Drone</b> <br /> <NavLink to="/Dashboard/Fleet/ManageDrone/NewDrone"><button style={{marginTop: 10}} className="btn btn-secondary">+ New Drone</button></NavLink></div>
 
                </div>
 <div className="row">
@@ -80,3 +83,14 @@ export default class ManageDrone extends Component {
         )
     }
 }
+
+ManageDrone.propTypes = {
+  auth: PropTypes.object.isRequired
+};
+const mapStateToProps = state => ({
+  auth: state.auth
+});
+export default connect(
+  mapStateToProps
+)(ManageDrone);
+

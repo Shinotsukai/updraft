@@ -12,6 +12,7 @@ import ProjectList from './Projects/ProjectList';
 import Project from './Projects/Listing/Project';
 import ManageCheckList from './Projects/ManageChecklist';
 import FlightLog from './Logging/FlightLog/FlightLog';
+import PrivateRoute from "../components/private-route/PrivateRoute";
 
 export default class ContentWrapper extends Component {
     render() {
@@ -19,19 +20,22 @@ export default class ContentWrapper extends Component {
             <div className="container-fluid">
 
                 <Switch>
-                    <Route exact path="/" component={DashHome} />
-                    <Route path="/Test" component={Test} />
-                    <Route path="/Projects/ProjectList" component={ProjectList} />
-                    <Route path="/Projects/Project" component={Project} />
-                    <Route path="/Projects/ManageCheckList" component={ManageCheckList} />
-                    <Route exact path="/Fleet/ManageDrone" component={ManageDrone} />
-                    <Route exact path="/Fleet/ManageDrone/NewDrone" component={NewDrone} />
-                    <Route path="/Fleet/ManageDrone/EditDrone/:id" component={EditDrone} />
-                    <Route exact path="/Fleet/ManageDrone/ViewDrone/:id" component={ViewDrone} />
-                    <Route path="/Logging/FlightLog" component={FlightLog} />
+                <PrivateRoute exact path="/Dashboard" component={DashHome} />
+                    <PrivateRoute exact path="/Dashboard/Test" component={Test} />
+                    <PrivateRoute path="/Dashboard/Projects/ProjectList" component={ProjectList} />
+                    <PrivateRoute path="/Dashboard/Projects/Project" component={Project} />
+                    <PrivateRoute path="/Dashboard/Projects/ManageCheckList" component={ManageCheckList} />
+                    <PrivateRoute exact path="/Dashboard/Fleet/ManageDrone" component={ManageDrone} />
+                    <PrivateRoute exact path="/Dashboard/Fleet/ManageDrone/NewDrone" component={NewDrone} />
+                    <PrivateRoute path="/Dashboard/Fleet/ManageDrone/EditDrone/:id" component={EditDrone} />
+                    <PrivateRoute exact path="/Dashboard/Fleet/ManageDrone/ViewDrone/:id" component={ViewDrone} />
+                    <PrivateRoute path="/Dashboard/Logging/FlightLog" component={FlightLog} />
+                
                 </Switch>
                 
             </div>
         )
     }
 }
+
+
