@@ -23,7 +23,7 @@ class Sidebar extends Component {
       {/* Nav Item  */}
       <li className="list-unstyled components sidebar-header">
         <div style={{width: '100%'}} className="text-center">
-          <a href="#" id="userSubmenu" data-toggle="collapse"  className="dropdown-toggle text-center" width="100%">
+          <a   id="userSubmenu" data-toggle="collapse"  className="dropdown-toggle text-center" width="100%">
             <img className="img-profile rounded-circle mb-2" src="https://source.unsplash.com/QAB-WJcbgJk/60x60" />
             <br />
 
@@ -56,7 +56,7 @@ class Sidebar extends Component {
       </li>
       <li><NavLink to="/Dashboard/">Dashboard Home</NavLink></li>
        <li>
-        <a href="#" id="Projects"  className="dropdown-toggle">Project Management</a>
+        <a  id="Projects"  className="dropdown-toggle">Project Management</a>
            <UncontrolledCollapse toggler="#Projects">
         <ul className="dropdown list-unstyled" >
           <li>
@@ -69,7 +69,7 @@ class Sidebar extends Component {
         </UncontrolledCollapse>
       </li>
       <li>
-        <a href="#" id="Drone" className="dropdown-toggle">Fleet Management</a>
+        <a   id="Drone" className="dropdown-toggle">Fleet Management</a>
            <UncontrolledCollapse toggler="#Drone">
         <ul className=" list-unstyled" id="pageSubmenu">
           <li>
@@ -85,7 +85,7 @@ class Sidebar extends Component {
         </UncontrolledCollapse>
       </li>
          <li>
-        <a href="#" id="Logging" className="dropdown-toggle">Logging</a>
+        <a   id="Logging" className="dropdown-toggle">Logging</a>
            <UncontrolledCollapse toggler="#Logging">
         <ul className=" list-unstyled" id="pageSubmenu">
           <li>
@@ -101,7 +101,7 @@ class Sidebar extends Component {
         </UncontrolledCollapse>
       </li>
          <li>
-        <a href="#" id="Reporting" className="dropdown-toggle">Reporting</a>
+        <a   id="Reporting" className="dropdown-toggle">Reporting</a>
            <UncontrolledCollapse toggler="#Reporting">
         <ul className=" list-unstyled" id="pageSubmenu">
           <li>

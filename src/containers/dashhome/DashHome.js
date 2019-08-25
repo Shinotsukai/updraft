@@ -43,17 +43,17 @@ class DashHome extends Component {
           </thead>
           <tbody>
             <tr>
-              <td scope="row">Inspire 1</td>
+              <td >Inspire 1</td>
               <td>3600</td>
               <td><span className="badge badge-success" style={{padding: 5}}>available</span></td>
             </tr>
             <tr>
-              <td scope="row">Gens Ace</td>
+              <td >Gens Ace</td>
               <td>1300</td>
               <td><span className="badge badge-danger" style={{padding: 5}}>needs charging</span></td>
             </tr>
             <tr>
-              <td scope="row">Gens Ace</td>
+              <td >Gens Ace</td>
               <td>1300</td>
               <td><span className="badge badge-warning" style={{padding: 5}}>assigned to job</span></td>
             </tr>
@@ -74,17 +74,17 @@ class DashHome extends Component {
           </thead>
           <tbody>
             <tr>
-              <td scope="row">GepRC KX5</td>
+              <td >GepRC KX5</td>
               <td>Resolder esc wiring</td>
               <td><span className="badge badge-success" style={{padding: 5}}>complete</span></td>
             </tr>
             <tr>
-              <td scope="row">Micro Quad 2inch</td>
+              <td >Micro Quad 2inch</td>
               <td>Replace front right motor</td>
               <td><span className="badge badge-warning" style={{padding: 5}}>awaiting parts</span></td>
             </tr>
              <tr>
-              <td scope="row">Afro BF-EX</td>
+              <td >Afro BF-EX</td>
               <td>To be rebuilt</td>
               <td><span className="badge badge-danger" style={{padding: 5}}>incomplete</span></td>
             </tr>

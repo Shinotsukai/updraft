@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import DashHome from './dashhome/DashHome';
-import {Route, Switch} from 'react-router-dom';
+import {Switch} from 'react-router-dom';
 import '../assets/css/core.css';
 import '../assets/css/style.css';
 import Test from './Test/Test';
