@@ -14,6 +14,6 @@ const batterySchema = new Schema ({
     timestamps: true,
 });
 
-const BatteryInfo = mongoose.model('BatteryInfo' batterySchema);
+const BatteryInfo = mongoose.model('BatteryInfo', batterySchema);
 
 module.exports = BatteryInfo;
