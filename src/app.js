@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { NavLink, Route, BrowserRouter as Router, Switch } from "react-router-dom";
+import { Route, BrowserRouter as Router } from "react-router-dom";
 import {Provider} from "react-redux";
 import store from "./store";
 import jwt_decode from "jwt-decode";
@@ -14,6 +14,7 @@ import Register from './containers/Landing/register';
 import Login from './containers/Landing/login';
 import PrivateRoute from "./components/private-route/PrivateRoute";
 import MainWrapper from './MainWrapper';
+import LandingPage from './containers/Landing/landing';
 
 // Check for token to keep user logged in
 if (localStorage.jwtToken) {
@@ -32,22 +33,23 @@ if (localStorage.jwtToken) {
       // Redirect to login
       window.location.href = "./login";
     }
+
+    //redirect to dashboard
+    
   }
 
 
 export default class App extends Component {
+
+    
     render() {
         return (
             <Provider store={store}>
             <Router>
             <div className="container">
-            <div className="row">
 
-            Landing page -> <br />
-            <NavLink to="/login"> Login </NavLink> | <br /> 
-            <NavLink to="/Register"> Register </NavLink><br />
-            </div>
             <div className="row"> 
+            <Route exact path="/" component={LandingPage} />
             <Route exact path="/register" component={Register} />
             <Route exact path="/login" component={Login} />
                          

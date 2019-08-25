@@ -53,7 +53,7 @@ class Login extends Component {
 
         const { errors } = this.state;
         return (
-            <div>
+            <div className="container-fluid">
 
                 <div className="row">
                    Don't have an account? <NavLink to="/register">Register Now</NavLink>
@@ -65,7 +65,7 @@ class Login extends Component {
                             <div className="card-header"><h5>Sign in:</h5></div>
 
                                 <div className="card-body">
-                                    <form noValidate onSubmit={this.onSubmit}>
+                                    <form className="form-group" noValidate onSubmit={this.onSubmit}>
 
                                     
               <div className="input-field col s12">

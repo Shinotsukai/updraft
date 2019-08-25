@@ -11,8 +11,8 @@ import { connect } from "react-redux";
 
 const DroneList = props => (  
 
-    <div className="col-sm-3 mb-4">
-        <div className="card text-center">
+    <div className="col-sm-12 col-md-4 mb-4">
+        <div className="card h-100 text-center">
             <h5 className="card-header mb-2">{props.droneitem.droneModel}</h5>
       <div className="mb-2">
              <ul class="list-group list-group-flush DroneManage">
@@ -21,7 +21,7 @@ const DroneList = props => (
               <li class="list-group-item">Size: {props.droneitem.droneSize}</li>
               <li class="list-group-item"><span className="badge badge-success" >Available</span></li>
             </ul>
-          <div style={{marginTop: 10}}>
+          <div  style={{marginTop: 10}}>
               <NavLink to={"/Dashboard/Fleet/ManageDrone/EditDrone/"+props.droneitem._id}><button className="btn btn-primary btn-circle" title="Edit Drone" ><i className="fas fa-edit" style={{fontSize:"20px", marginLeft:"3px", marginTop:"1px"}}></i></button></NavLink> <NavLink to={"/Dashboard/Fleet/ManageDrone/ViewDrone/"+props.droneitem._id}><button className="btn btn-primary btn-circle" title="View Drone" data-toggle="modal" data-target="#ViewDrone"><i class="fas fa-list" style={{fontSize:"20px", marginLeft:"1px", marginTop:"5px"}}></i></button></NavLink>
           </div>
       </div>

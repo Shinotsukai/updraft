@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { NavLink, Route, BrowserRouter as Router, Switch } from "react-router-dom";
+
 import Sidebar from './components/common/Sidebar';
 import Header from './components/common/Header';
 import './assets/css/core.css';

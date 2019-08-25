@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import ProgressBars from './ProgressBars';
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
+import WeatherCheck from '../../components/weather/weather';
+
 
 
 class DashHome extends Component {
@@ -19,11 +21,9 @@ class DashHome extends Component {
       </div>
     </div>
     <div className="col-sm-7 mb-4">
-      <div className="card" style={{textAlign: 'right'}}>
-        <h5 className="card-header">Local Weather</h5>
-        <a className="weatherwidget-io" href="https://forecast7.com/en/52d49n1d89/birmingham/" data-label_1="BIRMINGHAM" data-label_2="WEATHER" data-theme="original">BIRMINGHAM WEATHER</a>
-        
-      </div>
+
+          <WeatherCheck/>
+
     </div>
   </div>
   {/*Progress bars*/}
