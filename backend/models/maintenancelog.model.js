@@ -8,6 +8,7 @@ const maintenanceLogSchema = new Schema ({
     maintenanceNotes: {type:string, required:true},
     maintenanceStatus:{type:string, required:true},
     maintenanceDate:{type:date, required:true},
+    userID:{type:String,required:true},
 
 },
 {timestamps:true,});

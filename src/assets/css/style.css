@@ -27,6 +27,8 @@ a, a:hover, a:focus {
 ::-webkit-scrollbar-thumb {
   background: #343a40; 
   border-radius:10px;
+  
+
 }
 
 /* Handle on hover */
@@ -46,6 +48,7 @@ a, a:hover, a:focus {
     background: #563d7c linear-gradient(180deg, #6f5a90, #563d7c) repeat-x;
     color: #fff;
     transition: all 0.3s;
+    box-shadow: 10px 0 15px -7px #888;
     
 }
 
@@ -85,7 +88,9 @@ a, a:hover, a:focus {
     background: #563d7c;
 }
 
-#sidebar.active {margin-left: -250px;}
+#sidebar.active {
+  margin-left: -250px;
+  box-shadow: 0 0 0; }
 
 
 #content {
@@ -108,9 +113,11 @@ a, a:hover, a:focus {
 @media (max-width: 768px) {
     #sidebar {
         margin-left: -250px;
+        box-shadow: 0 0 0;
     }
     #sidebar.active {
         margin-left: 0;
+        box-shadow: 10px 0 15px -7px #888;
     }
     #content {
         width: 100%;

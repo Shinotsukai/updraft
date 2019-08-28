@@ -7,6 +7,7 @@ const flightLogSchema = new Schema ({
     flightDetails:{type:string, required:true},
     flightTime:{type:Number, required:true},
     flightDate:{type:Date, required:true},
+    userID:{type:String,required:true},
 
 },
 {

@@ -46,9 +46,7 @@ export default class App extends Component {
         return (
             <Provider store={store}>
             <Router>
-            <div className="container">
 
-            <div className="row"> 
             <Route exact path="/" component={LandingPage} />
             <Route exact path="/register" component={Register} />
             <Route exact path="/login" component={Login} />
@@ -56,8 +54,7 @@ export default class App extends Component {
               <PrivateRoute  path="/Dashboard" component={MainWrapper} />
             
 
-            </div>
-            </div>
+
             </Router>
             </Provider>
         )

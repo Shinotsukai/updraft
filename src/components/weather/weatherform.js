@@ -1,7 +1,7 @@
 import React from 'react'
 
 const WeatherForm = props => (
-    <div className="mb-2">
+    <div className="mb-2 col">
     <form  onSubmit={props.getWeather}>
 
         <div className="row text-center">

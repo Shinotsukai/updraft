@@ -15,14 +15,14 @@ const DroneList = props => (
         <div className="card h-100 text-center">
             <h5 className="card-header mb-2">{props.droneitem.droneModel}</h5>
       <div className="mb-2">
-             <ul class="list-group list-group-flush DroneManage">
-              <li class="list-group-item">Make: {props.droneitem.droneMake}</li>
-              <li class="list-group-item">MTOW: {props.droneitem.droneMTOW}</li>
-              <li class="list-group-item">Size: {props.droneitem.droneSize}</li>
-              <li class="list-group-item"><span className="badge badge-success" >Available</span></li>
+             <ul  className="list-group list-group-flush DroneManage">
+              <li  className="list-group-item">Make: {props.droneitem.droneMake}</li>
+              <li  className="list-group-item">MTOW: {props.droneitem.droneMTOW}</li>
+              <li  className="list-group-item">Size: {props.droneitem.droneSize}</li>
+              <li  className="list-group-item"><span className="badge badge-success" >Available</span></li>
             </ul>
           <div  style={{marginTop: 10}}>
-              <NavLink to={"/Dashboard/Fleet/ManageDrone/EditDrone/"+props.droneitem._id}><button className="btn btn-primary btn-circle" title="Edit Drone" ><i className="fas fa-edit" style={{fontSize:"20px", marginLeft:"3px", marginTop:"1px"}}></i></button></NavLink> <NavLink to={"/Dashboard/Fleet/ManageDrone/ViewDrone/"+props.droneitem._id}><button className="btn btn-primary btn-circle" title="View Drone" data-toggle="modal" data-target="#ViewDrone"><i class="fas fa-list" style={{fontSize:"20px", marginLeft:"1px", marginTop:"5px"}}></i></button></NavLink>
+              <NavLink to={"/Dashboard/Fleet/ManageDrone/EditDrone/"+props.droneitem._id}><button className="btn btn-primary btn-circle" title="Edit Drone" ><i className="fas fa-edit" style={{fontSize:"20px", marginLeft:"3px", marginTop:"1px"}}></i></button></NavLink> <NavLink to={"/Dashboard/Fleet/ManageDrone/ViewDrone/"+props.droneitem._id}><button className="btn btn-primary btn-circle" title="View Drone" data-toggle="modal" data-target="#ViewDrone"><i  className="fas fa-list" style={{fontSize:"20px", marginLeft:"1px", marginTop:"5px"}}></i></button></NavLink>
           </div>
       </div>
     </div>
