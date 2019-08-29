@@ -1,8 +1,80 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import {NavLink} from 'react-router-dom';
+import axios from 'axios';
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
 import AddFlightLog from './components/AddFlightLog'
 import EditFlightLog from './components/EditFlightLog'
 
-export default class FlightLog extends Component {
+
+
+//list component
+
+
+const FlightLogData = props => (  
+
+  <tr>
+              <td >{props.flightloglist.flightDate.substring(0,10)}</td>
+              <td>{props.flightloglist.drone_id.droneMake}</td>
+              <td>{props.flightloglist.drone_id.droneModel}</td>
+              <td>{props.flightloglist.flightTime}</td>
+              <td>{props.flightloglist.flightDetails}</td>
+              <td><button className="btn btn-primary btn-circle" title="Edit Flight"  data-toggle="modal" data-backdrop="static" href="/editflightlog" data-target="#EditFlightLog"><i className="fas fa-edit" style={{fontSize:"20px", marginLeft:"3px", marginTop:"1px"}}></i></button></td>
+            </tr>
+
+
+)
+
+
+
+
+
+class FlightLog extends Component {
+
+ //set initial state
+
+ constructor(props) {
+  super(props);
+  
+  this.state = {flightloglists: []}
+  
+}
+
+//load data when component mounts
+
+componentDidMount () {
+  
+  const { user } = this.props.auth;
+  
+
+    axios.post('http://localhost:5000/Logging/FlightLog',user)
+    .then(response => {
+    this.setState({flightloglists: response.data})
+    console.log(this.state.flightloglists)
+  })
+  .catch((error) => {
+    console.log(error);
+  })
+
+
+}
+
+
+// pass props to component
+
+ListFlightLog() {
+  
+  return this.state.flightloglists
+  
+  .map(currentflightloglist => {
+    return <FlightLogData flightloglist={currentflightloglist}  key={currentflightloglist._id}/>;
+  })
+}
+
+
+
+
+
     render() {
         return (
 <div>
@@ -30,35 +102,9 @@ export default class FlightLog extends Component {
             </tr>
           </thead>
           <tbody>
-           <tr >
-              <td >08/08/2019</td>
-              <td>Multi-Rotor</td>
-              <td>KX-5</td>
-              <td>00:10</td>
-              <td>Freestyle Practice</td>
-              <td><button className="btn btn-primary btn-circle" title="Edit Flight"  data-toggle="modal" data-backdrop="static" href="/editflightlog" data-target="#EditFlightLog"><i className="fas fa-edit" style={{fontSize:"20px", marginLeft:"3px", marginTop:"1px"}}></i></button></td>
-            </tr>
 
-               <tr >
-               <td >08/08/2019</td>
-              <td>Multi-Rotor</td>
-              <td>KX-5</td>
-              <td>00:10</td>
-              <td>Freestyle Practice</td>
-              <td><button className="btn btn-primary btn-circle" title="Edit Flight" ><i className="fas fa-edit" style={{fontSize:"20px", marginLeft:"3px", marginTop:"1px"}}></i></button></td>
-            </tr>
-
-               <tr >
-               <td >08/08/2019</td>
-              <td>Multi-Rotor</td>
-              <td>KX-5</td>
-              <td>00:10</td>
-              <td>Freestyle Practice</td>
-              <td><button className="btn btn-primary btn-circle" title="Edit Flight" ><i className="fas fa-edit" style={{fontSize:"20px", marginLeft:"3px", marginTop:"1px"}}></i></button></td>
-            </tr>
-
-
-              
+          {this.ListFlightLog()}
+ 
             
           </tbody>
         </table>
@@ -71,3 +117,14 @@ export default class FlightLog extends Component {
         )
     }
 }
+
+FlightLog.propTypes = {
+  auth: PropTypes.object.isRequired
+};
+const mapStateToProps = state => ({
+  auth: state.auth
+});
+export default connect(
+  mapStateToProps
+)(FlightLog);
+

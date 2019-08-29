@@ -3,8 +3,8 @@ const Schema = mongoose.Schema;
 
 const flightLogSchema = new Schema ({
 
-    drone_id:{type:string, required:true},
-    flightDetails:{type:string, required:true},
+    drone_id:{type:mongoose.Schema.Types.ObjectId, ref:'DroneInfo'},
+    flightDetails:{type:String, required:true},
     flightTime:{type:Number, required:true},
     flightDate:{type:Date, required:true},
     userID:{type:String,required:true},

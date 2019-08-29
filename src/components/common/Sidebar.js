@@ -76,7 +76,7 @@ class Sidebar extends Component {
             <NavLink to="/Dashboard/Fleet/ManageDrone">Manage Drones</NavLink>
           </li>
           <li>
-            <NavLink to="#">Manage Batteries</NavLink>
+            <NavLink to="/Dashboard/Fleet/ManageBattery">Manage Batteries</NavLink>
           </li>
           <li>
             <NavLink to="#">Manage Assets</NavLink>

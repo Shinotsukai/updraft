@@ -13,6 +13,7 @@ import Project from './Projects/Listing/Project';
 import ManageCheckList from './Projects/ManageChecklist';
 import FlightLog from './Logging/FlightLog/FlightLog';
 import PrivateRoute from "../components/private-route/PrivateRoute";
+import ManageBattery from './Fleet/ManageBattery/ManageBattery';
 
 export default class ContentWrapper extends Component {
     render() {
@@ -22,13 +23,22 @@ export default class ContentWrapper extends Component {
                 <Switch>
                 <PrivateRoute exact path="/Dashboard" component={DashHome} />
                     <PrivateRoute exact path="/Dashboard/Test" component={Test} />
+
+                    {/* Project Routing */}
                     <PrivateRoute path="/Dashboard/Projects/ProjectList" component={ProjectList} />
                     <PrivateRoute path="/Dashboard/Projects/Project" component={Project} />
                     <PrivateRoute path="/Dashboard/Projects/ManageCheckList" component={ManageCheckList} />
+
+                    {/* Fleet Drone Routing */}
                     <PrivateRoute exact path="/Dashboard/Fleet/ManageDrone" component={ManageDrone} />
                     <PrivateRoute exact path="/Dashboard/Fleet/ManageDrone/NewDrone" component={NewDrone} />
                     <PrivateRoute path="/Dashboard/Fleet/ManageDrone/EditDrone/:id" component={EditDrone} />
                     <PrivateRoute exact path="/Dashboard/Fleet/ManageDrone/ViewDrone/:id" component={ViewDrone} />
+
+                    {/* Battery Routing */}
+                    <PrivateRoute exact path="/Dashboard/Fleet/ManageBattery" component={ManageBattery} />
+
+                    {/* Log Routing */}
                     <PrivateRoute path="/Dashboard/Logging/FlightLog" component={FlightLog} />
                 
                 </Switch>

@@ -41,9 +41,15 @@ require('./passport')(passport);
 
 const droneinfoRouter = require('./routes/droneinfo.route');
 const userRouter = require('./routes/user.route');
+const batteryInfoRouter = require('./routes/batteryinfo.route');
+const flightLogRouter = require('./routes/flightlog.route');
 
 app.use('/Fleet/ManageDrone', droneinfoRouter);
+app.use('/Fleet/ManageBattery', batteryInfoRouter);
+app.use('/Logging/FlightLog', flightLogRouter);
+
 app.use('/api/users', userRouter)
+
 
 
 //Check server is running
