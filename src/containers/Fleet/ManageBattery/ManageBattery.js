@@ -44,8 +44,10 @@ class ManageBattery extends Component {
 //load data when component mounts
 
   componentDidMount () {
+
+    const { user } = this.props.auth;
     
-    axios.get('http://localhost:5000/Fleet/ManageBattery')
+    axios.post('http://localhost:5000/Fleet/ManageBattery', user)
     .then(response => {
       this.setState({batterylists: response.data})
     })
@@ -57,9 +59,8 @@ class ManageBattery extends Component {
 // pass props to component
 
   ListBattery() {
-    const { user } = this.props.auth;
+    
     return this.state.batterylists
-    .filter(batterylist => batterylist.userID === user.id)
     .map(currentbatterylist => {
       return <BatteryInfoList batteryitem={currentbatterylist} key={currentbatterylist._id}/>;
     })

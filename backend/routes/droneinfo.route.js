@@ -5,8 +5,9 @@ let DroneInfo = require('../models/drone.model');
 //creating routes
 
 //list all route
-router.route('/').get((req,res) => {
-    DroneInfo.find()
+router.route('/').post((req,res) => {
+    const userID = req.body.id;
+    DroneInfo.find({userID})
     .then(droneinfos => res.json(droneinfos))
     .catch(err => res.status(400).json('Error: '+err));
 });

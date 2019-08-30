@@ -1,8 +1,9 @@
 const router = require('express').Router();
 let BatteryInfo = require('../models/battery.model')
 
-router.route('/').get((req,res) => {
-    BatteryInfo.find()
+router.route('/').post((req,res) => {
+    const userID = req.body.id;
+    BatteryInfo.find({userID})
     .then(batteryinfos => res.json(batteryinfos))
     .catch(err => res.status(400).json('Error: '+ err));
 });

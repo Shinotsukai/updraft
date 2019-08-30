@@ -45,8 +45,10 @@ class ManageDrone extends Component {
 //load data when component mounts
 
   componentDidMount () {
+
+    const { user } = this.props.auth;
     
-    axios.get('http://localhost:5000/Fleet/ManageDrone')
+    axios.post('http://localhost:5000/Fleet/ManageDrone', user)
     .then(response => {
       this.setState({dronelists: response.data})
     })
@@ -58,10 +60,9 @@ class ManageDrone extends Component {
 // pass props to component
 
   ListDrone() {
-    const { user } = this.props.auth;
+    
     return this.state.dronelists
-    .filter(dronelist => dronelist.userID === user.id)
-    .map(currentdronelist => {
+      .map(currentdronelist => {
       return <DroneList droneitem={currentdronelist} key={currentdronelist._id}/>;
     })
   }
