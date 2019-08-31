@@ -88,7 +88,6 @@ router.route('/update/:id').post((req,res) => {
         droneinfo.droneTX = req.body.droneTX;
         droneinfo.droneRX = req.body.droneRX;
         droneinfo.droneNotes = req.body.droneNotes;
-        droneinfo.userID = req.body.userID;
 
         droneinfo.save()
         .then(() => res.json('Drone Updated'))

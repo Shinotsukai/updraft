@@ -36,7 +36,7 @@ export default class ProjectList extends Component {
               <td>Somewhere in the UK</td>
               <td>Aerial photography to assess pipe work in residential area</td>
               <td><span className="badge badge-warning" style={{padding: 5}}>Quote</span></td>
-              <td><NavLink to="/Projects/Project"><button className="btn btn-primary btn-circle" title="Edit Job" ><i className="fas fa-edit" style={{fontSize:"20px", marginLeft:"3px", marginTop:"1px"}}></i></button></NavLink></td>
+              <td><NavLink to="/Dashboard/Projects/Project"><button className="btn btn-primary btn-circle" title="Edit Job" ><i className="fas fa-edit" style={{fontSize:"20px", marginLeft:"3px", marginTop:"1px"}}></i></button></NavLink></td>
             </tr>
 
               <tr >

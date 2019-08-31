@@ -56,7 +56,7 @@ router.route('/update/:id').post((req,res) => {
         batteryinfo.batteryCapacity = req.body.batteryCapacity;
         batteryinfo.batteryCellCount = Number(req.body.batteryCellCount);
         batteryinfo.batteryNotes = req.body.batteryNotes;
-        batteryinfo.userID = req.body.userID;
+        
 
         batteryinfo.save()
         .then(() => res.json('Battery Updated!'))
