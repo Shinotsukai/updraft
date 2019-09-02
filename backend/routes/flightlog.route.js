@@ -54,6 +54,7 @@ router.route('/:id').delete((req,res) => {
 
 router.route('/update/:id').post((res,req) => {
     FlightLog.findById(req.params.id)
+    .populate('drone_id')
     .then(flightlog => {
         flightlog.drone_id = req.body.drone_id;
         flightlog.flightDetails = req.body.flightDetails;

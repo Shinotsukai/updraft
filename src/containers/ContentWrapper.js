@@ -14,6 +14,8 @@ import ManageCheckList from './Projects/ManageChecklist';
 import FlightLog from './Logging/FlightLog/FlightLog';
 import AddFlightLog from './Logging/FlightLog/components/AddFlightLog'
 import MaintenanceLog from './Logging/MaintenanceLog/MaintenanceLog';
+import NewMaintenanceLog from './Logging/MaintenanceLog/components/NewMaintenanceLog';
+import EditMaintenanceLog from './Logging/MaintenanceLog/components/EditMaintenanceLog';
 import PrivateRoute from "../components/private-route/PrivateRoute";
 import ManageBattery from './Fleet/ManageBattery/ManageBattery';
 
@@ -43,7 +45,9 @@ export default class ContentWrapper extends Component {
                     {/* Log Routing */}
                     <PrivateRoute exact path="/Dashboard/Logging/FlightLog" component={FlightLog} />
                     <PrivateRoute path="/Dashboard/Logging/FlightLog/AddFlightLog" component={AddFlightLog} />
-                    <PrivateRoute path="/Dashboard/Logging/MaintenanceLog" component={MaintenanceLog} />
+                    <PrivateRoute exact path="/Dashboard/Logging/MaintenanceLog" component={MaintenanceLog} />
+                    <PrivateRoute path="/Dashboard/Logging/MaintenanceLog/NewMaintenanceLog" component={NewMaintenanceLog} />
+                    <PrivateRoute path="/Dashboard/Logging/MaintenanceLog/EditMaintenanceLog/:id" component={EditMaintenanceLog} />
                 
                 </Switch>
                 

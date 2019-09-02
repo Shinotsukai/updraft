@@ -38,8 +38,11 @@ newMaintenanceLog.save()
 
 //List One
 
-router.route('/:id').get((req,res) => {
+router.route('/:id').post((req,res) => {
+    const userID = req.body.id;
+    MaintenanceLog.find({userID})
     MaintenanceLog.findById(req.params.id)
+    .populate('drone_id')
     .then(maintenancelog => res.json(maintenancelog))
     .catch(err => res.status(400).json('Error: '+err));
 });
@@ -54,10 +57,9 @@ router.route('/:id').delete((req,res) => {
 
 //Update
 
-router.route('/update/:id').post((res,req) => {
+router.route('/update/:id').post((req,res) => {
     MaintenanceLog.findById(req.params.id)
-    .then(maintenancelog => {
-        maintenancelog.drone_id = req.body.drone_id;
+    .then(maintenancelog => {        
         maintenancelog.maintenanceAction = req.body.maintenanceAction;
         maintenancelog.maintenanceNotes = req.body.maintenanceNotes;
         maintenancelog.maintenanceStatus = req.body.maintenanceStatus;

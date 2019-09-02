@@ -22,7 +22,7 @@ const MaintenanceLogData = props => (
               <td>{props.maintenanceloglist.maintenanceAction}</td>
               <td>{props.maintenanceloglist.maintenanceNotes}</td>
               <td><span className={props.statusToClassName[props.maintenanceloglist.maintenanceStatus]} style={{padding: 5}}>{props.maintenanceloglist.maintenanceStatus}</span></td>
-              <td><button className="btn btn-primary btn-circle" title="Edit maintenance"  data-toggle="modal" data-backdrop="static" href="/editflightlog" data-target="#EditFlightLog"><i className="fas fa-edit" style={{fontSize:"20px", marginLeft:"3px", marginTop:"1px"}}></i></button></td>
+              <td><NavLink to={"/Dashboard/Logging/MaintenanceLog/EditMaintenanceLog/"+props.maintenanceloglist._id}><button className="btn btn-primary btn-circle" title="Edit maintenance" ><i className="fas fa-edit" style={{fontSize:"20px", marginLeft:"3px", marginTop:"1px"}}></i></button></NavLink></td>
             </tr>
 
 
@@ -91,7 +91,7 @@ ListMaintenanceLog() {
 
                 <div className="row mb-4">
                    <div className="col-xs-12 col-sm-6"><h2>Maintenance Log</h2></div>
-                   <div className="col-xs-12 col-sm-6 text-right"> Home > Logging > <b>Maintenance log</b><br /> <button style={{marginTop: 10}} className="btn btn-secondary" data-toggle="modal" data-backdrop="static" data-target="#NewFlightLog">Add Maintenance</button></div>
+                   <div className="col-xs-12 col-sm-6 text-right"> Home > Logging > <b>Flight log</b><br /> <NavLink to="/Dashboard/Logging/MaintenanceLog/NewMaintenanceLog"><button style={{marginTop: 10}} className="btn btn-secondary">+ New Maintenance Log</button></NavLink></div>
                    
                </div>
 
