@@ -95,7 +95,7 @@ class Sidebar extends Component {
             <NavLink to="#">Battery Log</NavLink>
           </li>
           <li>
-            <NavLink to="#">Maintenance Log</NavLink>
+            <NavLink to="/Dashboard/Logging/MaintenanceLog">Maintenance Log</NavLink>
           </li>
         </ul>
         </UncontrolledCollapse>

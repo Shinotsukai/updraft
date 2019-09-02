@@ -291,3 +291,5 @@ transform: translateX(250px);
 }
 
 .DroneManage .list-group-item {padding:0.25rem 0;}
+
+.inputfile {display:none;}

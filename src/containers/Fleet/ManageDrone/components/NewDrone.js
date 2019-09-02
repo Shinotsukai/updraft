@@ -171,7 +171,7 @@ class NewDrone extends Component {
             <form onSubmit={this.onSubmit}>
             
   
-    <div className="modal-content">
+    <div className="modal-content mb-4">
    <div className="card text-center">
    
         <h5 className="card-header mb-2">Add New Drone</h5>

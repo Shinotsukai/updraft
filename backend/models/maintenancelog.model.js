@@ -3,11 +3,11 @@ const Schema = mongoose.Schema;
 
 const maintenanceLogSchema = new Schema ({
 
-    drone_id: {type:string, required:true},
-    maintenanceAction: {type:string, required:true},
-    maintenanceNotes: {type:string, required:true},
-    maintenanceStatus:{type:string, required:true},
-    maintenanceDate:{type:date, required:true},
+    drone_id: {type:mongoose.Schema.Types.ObjectId, ref:'DroneInfo'},
+    maintenanceAction: {type:String, required:true},
+    maintenanceNotes: {type:String, required:true},
+    maintenanceStatus:{type:String, required:true},
+    maintenanceDate:{type:Date, required:true},
     userID:{type:String,required:true},
 
 },

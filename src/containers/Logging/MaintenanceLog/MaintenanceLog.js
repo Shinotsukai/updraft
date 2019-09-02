@@ -1,14 +1,97 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import {NavLink} from 'react-router-dom';
+import axios from 'axios';
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
 
 
-export default class MaintenanceLog extends Component {
+
+
+
+//list component
+
+
+
+const MaintenanceLogData = props => (  
+  
+
+  <tr>
+              <td >{props.maintenanceloglist.maintenanceDate.substring(0,10)}</td>
+              <td>{props.maintenanceloglist.drone_id.droneMake}</td>
+              <td>{props.maintenanceloglist.drone_id.droneModel}</td>
+              <td>{props.maintenanceloglist.maintenanceAction}</td>
+              <td>{props.maintenanceloglist.maintenanceNotes}</td>
+              <td><span className={props.statusToClassName[props.maintenanceloglist.maintenanceStatus]} style={{padding: 5}}>{props.maintenanceloglist.maintenanceStatus}</span></td>
+              <td><button className="btn btn-primary btn-circle" title="Edit maintenance"  data-toggle="modal" data-backdrop="static" href="/editflightlog" data-target="#EditFlightLog"><i className="fas fa-edit" style={{fontSize:"20px", marginLeft:"3px", marginTop:"1px"}}></i></button></td>
+            </tr>
+
+
+)
+
+
+
+
+
+class MaintenanceLog extends Component {
+
+ //set initial state
+
+ constructor(props) {
+  super(props);
+  
+  this.state = {maintenanceloglists: []}
+  
+}
+
+//load data when component mounts
+
+componentDidMount () {
+  
+  const { user } = this.props.auth;
+  
+
+    axios.post('http://localhost:5000/Logging/MaintenanceLog',user)
+    .then(response => {
+    this.setState({maintenanceloglists: response.data})
+    console.log(this.state.maintenanceloglists)
+  })
+  .catch((error) => {
+    console.log(error);
+  })
+
+
+}
+
+
+// pass props to component
+
+ListMaintenanceLog() {
+
+  const statusToClassName = {
+    'Complete': "badge badge-success",
+    'Awaiting Parts': "badge badge-warning",
+    'Incomplete': "badge badge-danger"
+  };
+  
+  return this.state.maintenanceloglists
+  
+  .map(currentmaintenanceloglist => {
+    return <MaintenanceLogData maintenanceloglist={currentmaintenanceloglist} statusToClassName={statusToClassName}  key={currentmaintenanceloglist._id}/>;
+  })
+}
+
+
+
+
+
     render() {
+      
         return (
 <div>
 
                 <div className="row mb-4">
                    <div className="col-xs-12 col-sm-6"><h2>Maintenance Log</h2></div>
-                   <div className="col-xs-12 col-sm-4 text-right"> Home > Logging > <b>Maintenance log</b><br /> <button style={{marginTop: 10}} className="btn btn-secondary" data-toggle="modal" data-backdrop="static" data-target="#NewFlightLog">Add Flight</button></div>
+                   <div className="col-xs-12 col-sm-6 text-right"> Home > Logging > <b>Maintenance log</b><br /> <button style={{marginTop: 10}} className="btn btn-secondary" data-toggle="modal" data-backdrop="static" data-target="#NewFlightLog">Add Maintenance</button></div>
                    
                </div>
 
@@ -21,7 +104,8 @@ export default class MaintenanceLog extends Component {
           <thead className="thead-dark">
             <tr>
               <th>Date</th>
-              <th>Aircraft</th>
+              <th>Make</th>
+              <th>Model</th>
               <th>Action Taken</th>
               <th>Notes</th>
               <th>Status</th>
@@ -29,35 +113,9 @@ export default class MaintenanceLog extends Component {
             </tr>
           </thead>
           <tbody>
-           <tr >
-              <td >08/08/2019</td>
-              <td>KX-5</td>
-              <td>Motor Replacement</td>
-              <td>what a pain</td>
-              <td>Available</td>
-              <td><button className="btn btn-primary btn-circle" title="Edit Flight"  data-toggle="modal" data-backdrop="static" data-target="#EditFlightLog"><i className="fas fa-edit" style={{fontSize:"20px", marginLeft:"3px", marginTop:"1px"}}></i></button></td>
-            </tr>
 
-            <tr >
-              <td >08/08/2019</td>
-              <td>KX-5</td>
-              <td>Motor Replacement</td>
-              <td>what a pain</td>
-              <td>Available</td>
-              <td><button className="btn btn-primary btn-circle" title="Edit Flight"  data-toggle="modal" data-backdrop="static" data-target="#EditFlightLog"><i className="fas fa-edit" style={{fontSize:"20px", marginLeft:"3px", marginTop:"1px"}}></i></button></td>
-            </tr>
-
-            <tr >
-              <td >08/08/2019</td>
-              <td>KX-5</td>
-              <td>Motor Replacement</td>
-              <td>what a pain</td>
-              <td>Available</td>
-              <td><button className="btn btn-primary btn-circle" title="Edit Flight"  data-toggle="modal" data-backdrop="static" data-target="#EditFlightLog"><i className="fas fa-edit" style={{fontSize:"20px", marginLeft:"3px", marginTop:"1px"}}></i></button></td>
-            </tr>
-
-
-              
+          {this.ListMaintenanceLog()}
+ 
             
           </tbody>
         </table>
@@ -70,3 +128,14 @@ export default class MaintenanceLog extends Component {
         )
     }
 }
+
+MaintenanceLog.propTypes = {
+  auth: PropTypes.object.isRequired
+};
+const mapStateToProps = state => ({
+  auth: state.auth
+});
+export default connect(
+  mapStateToProps
+)(MaintenanceLog);
+

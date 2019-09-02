@@ -3,8 +3,6 @@ import {NavLink} from 'react-router-dom';
 import axios from 'axios';
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import AddFlightLog from './components/AddFlightLog'
-import EditFlightLog from './components/EditFlightLog'
 
 
 
@@ -81,8 +79,8 @@ ListFlightLog() {
 
                 <div className="row mb-4">
                    <div className="col-xs-12 col-sm-6"><h2>Flight Records</h2></div>
-                   <div className="col-xs-12 col-sm-4 text-right"> Home > Logging > <b>Flight log</b><br /> <button style={{marginTop: 10}} className="btn btn-secondary" data-toggle="modal" data-backdrop="static" data-target="#NewFlightLog">Add Flight</button></div>
-                   <AddFlightLog />
+                   <div className="col-xs-12 col-sm-6 text-right"> Home > Logging > <b>Flight log</b><br /> <NavLink to="/Dashboard/Logging/FlightLog/AddFlightLog"><button style={{marginTop: 10}} className="btn btn-secondary">+ New Flight Log</button></NavLink></div>
+                   
                </div>
 
 
@@ -112,7 +110,7 @@ ListFlightLog() {
     </div>
 
     </div>
-                <EditFlightLog />
+                
             </div>
         )
     }
