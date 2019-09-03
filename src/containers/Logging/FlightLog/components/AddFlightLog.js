@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
+
+
 
 
 class AddFlightLog extends Component {
@@ -103,7 +107,8 @@ class AddFlightLog extends Component {
                     <div className="input-group-prepend">
                         <span className="input-group-text" id="basic-addon1">Date</span>
                     </div>
-                    <input type="text" value="" onChange={this.onChangeflightDate} className="form-control" placeholder="Date"  aria-describedby="basic-addon1" />
+                    <DatePicker selected={this.state.flightDate} onChange={this.onChangeflightDate} />
+                    
                 </div>
 
 

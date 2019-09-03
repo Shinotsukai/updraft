@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 
 
 class EditMaintenanceLog extends Component {
@@ -97,7 +99,7 @@ class EditMaintenanceLog extends Component {
             <form onSubmit={this.onSubmit}>
     <div className="modal-content">
    <div className="card text-center">
-        <h5 className="card-header mb-2">Add New maintenance Log</h5>
+        <h5 className="card-header mb-2">Edit Maintenance Log</h5>
         
         <div className="mb-2">
             
@@ -106,7 +108,7 @@ class EditMaintenanceLog extends Component {
                     <div className="input-group-prepend">
                         <span className="input-group-text" id="basic-addon1">Date</span>
                     </div>
-                    <input type="text" value={this.state.maintenanceDate} onChange={this.onChangemaintenanceDate} className="form-control" placeholder="Date"  aria-describedby="basic-addon1" />
+                    <DatePicker selected={this.state.maintenanceDate} onChange={this.onChangemaintenanceDate} />
                 </div>
 
 
