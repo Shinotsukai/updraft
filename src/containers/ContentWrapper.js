@@ -11,6 +11,7 @@ import ViewDrone from './Fleet/ManageDrone/components/ViewDrone';
 import ProjectList from './Projects/ProjectList';
 import Project from './Projects/Listing/Project';
 import ManageCheckList from './Projects/ManageChecklist';
+import NewCheckList from './Projects/Listing/components/newchecklist';
 import FlightLog from './Logging/FlightLog/FlightLog';
 import AddFlightLog from './Logging/FlightLog/components/AddFlightLog'
 import MaintenanceLog from './Logging/MaintenanceLog/MaintenanceLog';
@@ -31,7 +32,8 @@ export default class ContentWrapper extends Component {
                     {/* Project Routing */}
                     <PrivateRoute path="/Dashboard/Projects/ProjectList" component={ProjectList} />
                     <PrivateRoute path="/Dashboard/Projects/Project" component={Project} />
-                    <PrivateRoute path="/Dashboard/Projects/ManageCheckList" component={ManageCheckList} />
+                    <PrivateRoute exact path="/Dashboard/Projects/ManageCheckList" component={ManageCheckList} />
+                    <PrivateRoute path="/Dashboard/Projects/ManageCheckList/NewList" component={NewCheckList} />
 
                     {/* Fleet Drone Routing */}
                     <PrivateRoute exact path="/Dashboard/Fleet/ManageDrone" component={ManageDrone} />
