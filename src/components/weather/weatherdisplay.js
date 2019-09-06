@@ -1,77 +1,35 @@
 import React from 'react'
+import WeatherIcon from 'react-icons-weather';
+import "./weatherdisplay.css"
+import 'react-icons-weather/lib/css/weather-icons-wind.css';
 
 
 const WeatherDisplay = props => (
-    <div>
-    {props.city && props.country ? (
-        <div>
-            <div className="container">
 
-            <div className="row">
-                
-
-                    <table className="table table-responsive table-striped text-center">
-                        <thead className="thead-dark">
-                            <tr>
-                                <th>Temperature</th>
-                                <th>Description</th>
-                                <th>Humidity</th>
-                                <th>Visibility</th>
-                                <th>Speed</th>
-                                <th>Direction</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td >{props.temperature}&deg;C</td>
-                                <td>{props.description}</td>
-                                <td>{props.humidity}</td>
-                                <td>{props.visibility}</td>
-                                <td>{props.windspeed}</td>
-                                <td>{props.winddirection}&deg;</td>
-                            </tr>
-                            
-                        </tbody>
-                    </table>
-
-                </div>
-            </div>
+<div className="card-body text-center">
+{props.city && props.country ? (
 
 
 
-            
-        </div>
-    ) : (
-        <div className="container">
+    <ul class="list-group list-group-flush">
+    <li class="list-group-item">
+        <WeatherIcon name="owm" iconId={props.weatherIcon} flip="horizontal" rotate="90" style={{fontSize:'50px'}} /></li>
+    <li class="list-group-item"><strong>{props.description}</strong></li>
+    <li class="list-group-item"><strong>{props.temperature}&deg;C</strong></li>
+    <li class="list-group-item">Min: <strong>{props.temp_min}&deg;C</strong> - Max: <strong>{props.temp_max}&deg;C</strong> </li>
+    <li class="list-group-item">Visibility: <strong>{props.visibility}</strong></li>
+    <li class="list-group-item">Wind Speed: <strong>{props.windspeed}</strong> <i style={{fontSize:'20px'}}  className={`wi wi-wind towards-${props.winddirection}`}></i></li>
+  </ul>
 
-        <div className="row">
-            
 
-                <table className="table table-responsive table-striped text-center">
-                    <thead className="thead-dark">
-                        <tr>
-                            <th>Temperature</th>
-                            <th>Description</th>
-                            <th>Humidity</th>
-                            <th>Visibility</th>
-                            <th>Speed</th>
-                            <th>Direction</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td colSpan="6">{props.error}</td>
-                            
-                        </tr>
-                        
-                    </tbody>
-                </table>
-
-            </div>
-        </div>
+) : (
+<div>
+    {props.error}
+</div>
     )}
 
 </div>
+
 )
 
 export default WeatherDisplay;

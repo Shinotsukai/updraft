@@ -9,6 +9,8 @@ export default class WeatherCheck extends Component {
 
     state = {
         temperature: undefined,
+        temp_min: undefined,
+        temp_max: undefined,
         city: undefined,
         country: undefined,
         humidity: undefined,
@@ -16,6 +18,7 @@ export default class WeatherCheck extends Component {
         windspeed: undefined,
         winddirection: undefined,
         description: undefined,
+        weatherIcon: "800",
         error: undefined
 
     }
@@ -30,18 +33,24 @@ export default class WeatherCheck extends Component {
        if (city && country) {
         this.setState({
             temperature: data.main.temp,
+            temp_min: data.main.temp_min,
+            temp_max: data.main.temp_max,
             city: data.name,
             country: data.sys.country,
             humidity: data.main.humidity,
             visibility: data.visibility,
             windspeed: data.wind.speed,
             winddirection: data.wind.deg,
-            description: data.weather[0].description
+            description: data.weather[0].description,
+            weatherIcon: data.weather[0].id
+
 
         })
        } else {
            this.setState({
             temperature: undefined,
+            temp_min: undefined,
+            temp_max: undefined,
             city: undefined,
             country: undefined,
             humidity: undefined,
@@ -49,11 +58,14 @@ export default class WeatherCheck extends Component {
             windspeed: undefined,
             winddirection: undefined,
             description: undefined,
+            weatherIcon: "800",
             error: 'Please enter in details'
 
            })
 
        }
+
+       console.log(this.state);
     }
 
     render() {
@@ -62,9 +74,14 @@ export default class WeatherCheck extends Component {
 
             <div className="card" style={{textAlign: 'right'}}>
         <h5 className="card-header mb-2">Check Weather: {this.state.city} - {this.state.country} </h5>
-        <WeatherForm getWeather={this.getWeather}  />
+
+        <div className="container-fluid">
+            <div className="row">
+                <div className="col-6">
                 <WeatherDisplay 
                 temperature={this.state.temperature}
+                temp_min={this.state.temp_min}
+                temp_max={this.state.temp_max}
                 city={this.state.city}
                 country={this.state.country}
                 humidity={this.state.humidity}
@@ -72,8 +89,17 @@ export default class WeatherCheck extends Component {
                 windspeed={this.state.windspeed}
                 winddirection={this.state.winddirection}
                 description={this.state.description}
+                weatherIcon={this.state.weatherIcon}
                 error={this.state.error}
                 />
+                </div>
+
+                <div className="col-6">
+                <WeatherForm getWeather={this.getWeather}  />
+                </div>
+            </div>
+        </div>
+        
         
       </div>
     
