@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import {NavLink} from 'react-router-dom';
 
 export default class ManageCheckList extends Component {
     render() {
@@ -7,7 +8,7 @@ export default class ManageCheckList extends Component {
 
                 <div className="row mb-4">
                    <div className="col-xs-12 col-sm-8"><h2>CheckList</h2></div>
-                   <div className="col-xs-12 col-sm-4 text-right"> Home > Projects > <b>CheckList</b><br /> <button style={{marginTop: 10}} className="btn btn-secondary" >+ New CheckList</button></div>
+                   <div className="col-xs-12 col-sm-4 text-right"> Home > Projects > <b>CheckList</b><br /> <NavLink to="/Dashboard/Projects/ManageCheckList/NewList"><button style={{marginTop: 10}} className="btn btn-secondary" >+ New CheckList</button></NavLink></div>
                </div>
 
 

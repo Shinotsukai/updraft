@@ -12,12 +12,15 @@ class DashHome extends Component {
       const { user } = this.props.auth;
         return (
 <div>
+  {/*Progress bars*/}
+  <ProgressBars />
   {/*weather and welcome*/}
   <div className="row">
     <div className="col-sm-5 mb-4">
-      <div className="card">
+      <div className="card h-100">
         <h5 className="card-header mb-2">Welcome back {user.username}</h5>
-        <p className="card-text mb-2" style={{padding: 10}}>Your user id is: {user.id}</p>
+
+        <p className="card-text mb-2" style={{padding: 10}}>Your PFCO Expires on: <strong>DD-MM-YYYY</strong> <br /> Your user id is: {user.id}</p>
       </div>
     </div>
     <div className="col-sm-7 mb-4">
@@ -26,8 +29,7 @@ class DashHome extends Component {
 
     </div>
   </div>
-  {/*Progress bars*/}
-  <ProgressBars />
+  
   {/* tables*/}
   <div className="row">
     <div className="col-sm-12 col-md-6 mb-4">

@@ -17,10 +17,11 @@ const MaintenanceLogData = props => (
 
   <tr>
               <td >{props.maintenanceloglist.maintenanceDate.substring(0,10)}</td>
-              <td>{props.maintenanceloglist.drone_id.droneMake}</td>
+              
               <td>{props.maintenanceloglist.drone_id.droneModel}</td>
               <td>{props.maintenanceloglist.maintenanceAction}</td>
               <td>{props.maintenanceloglist.maintenanceNotes}</td>
+              <td >{props.maintenanceloglist.updatedAt.substring(0,10)}</td>
               <td><span className={props.statusToClassName[props.maintenanceloglist.maintenanceStatus]} style={{padding: 5}}>{props.maintenanceloglist.maintenanceStatus}</span></td>
               <td><NavLink to={"/Dashboard/Logging/MaintenanceLog/EditMaintenanceLog/"+props.maintenanceloglist._id}><button className="btn btn-primary btn-circle" title="Edit maintenance" ><i className="fas fa-edit" style={{fontSize:"20px", marginLeft:"3px", marginTop:"1px"}}></i></button></NavLink></td>
             </tr>
@@ -103,11 +104,12 @@ ListMaintenanceLog() {
         <table className="table table-responsive table-striped text-center">
           <thead className="thead-dark">
             <tr>
-              <th>Date</th>
-              <th>Make</th>
+              <th>Date Added</th>
+              
               <th>Model</th>
               <th>Action Taken</th>
               <th>Notes</th>
+              <th>Last Updated</th>
               <th>Status</th>
               <th></th>
             </tr>
