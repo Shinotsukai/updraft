@@ -5,13 +5,14 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const passport = require('passport');
-
+const path = require('path');
 require('dotenv').config();
 
 //Server connection
 
 const app = express();
-const port = process.env.PORT || 5000;
+app.use(express.static(path.join(__dirname, 'build')));
+const port = process.env.PORT || 8080;
 
 //Body Parser middleware
 
@@ -55,6 +56,14 @@ app.use('/api/users', userRouter)
 
 
 //Check server is running
+
+app.get('/ping', function (req, res) {
+    return res.send('pong');
+   });
+   
+   app.get('/', function (req, res) {
+     res.sendFile(path.join(__dirname, 'build', 'index.html'));
+   });
 
 app.listen(port, () => {
     console.log(`Server is running on port: ${port}`);
