@@ -11,7 +11,7 @@ require('dotenv').config();
 //Server connection
 
 const app = express();
-const port = process.env.port || 5000;
+const port = process.env.PORT || 5000;
 
 //Body Parser middleware
 

@@ -42,7 +42,7 @@ export default class EditDrone extends Component {
     }
 
     componentDidMount () {
-      axios.get('http://localhost:5000/Fleet/ManageDrone/'+this.props.match.params.id)
+      axios.get('/Fleet/ManageDrone/'+this.props.match.params.id)
       .then(response => {
         this.setState({
           droneMake: response.data.droneMake,
@@ -165,7 +165,7 @@ export default class EditDrone extends Component {
 
         console.log(drone);
 
-        axios.post('http://localhost:5000/Fleet/ManageDrone/update/'+this.props.match.params.id,drone)
+        axios.post('/Fleet/ManageDrone/update/'+this.props.match.params.id,drone)
         .then(res => console.log(res));
 
         window.location = '/Dashboard/Fleet/ManageDrone';

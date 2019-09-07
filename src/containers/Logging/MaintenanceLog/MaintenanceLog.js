@@ -51,7 +51,7 @@ componentDidMount () {
   const { user } = this.props.auth;
   
 
-    axios.post('http://localhost:5000/Logging/MaintenanceLog',user)
+    axios.post('/Logging/MaintenanceLog',user)
     .then(response => {
     this.setState({maintenanceloglists: response.data})
     console.log(this.state.maintenanceloglists)

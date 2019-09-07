@@ -28,7 +28,7 @@ export default class ViewDrone extends Component {
     }
 
     componentDidMount () {
-      axios.get('http://localhost:5000/Fleet/ManageDrone/'+this.props.match.params.id)
+      axios.get('/Fleet/ManageDrone/'+this.props.match.params.id)
       .then(response => {
         this.setState({
           droneMake: response.data.droneMake,

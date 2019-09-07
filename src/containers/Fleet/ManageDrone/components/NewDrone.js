@@ -148,7 +148,7 @@ class NewDrone extends Component {
 
         console.log(drone);
 
-        axios.post('http://localhost:5000/Fleet/ManageDrone/add',drone)
+        axios.post('/Fleet/ManageDrone/add',drone)
         .then(res => console.log(res));
 
         window.location = '/Dashboard/Fleet/ManageDrone';

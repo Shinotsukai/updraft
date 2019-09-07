@@ -45,7 +45,7 @@ componentDidMount () {
   const { user } = this.props.auth;
   
 
-    axios.post('http://localhost:5000/Logging/FlightLog',user)
+    axios.post('/Logging/FlightLog',user)
     .then(response => {
     this.setState({flightloglists: response.data})
     console.log(this.state.flightloglists)

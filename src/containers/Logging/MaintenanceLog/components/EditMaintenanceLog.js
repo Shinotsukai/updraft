@@ -32,7 +32,7 @@ class EditMaintenanceLog extends Component {
 
         const { user } = this.props.auth;
 
-        axios.post('http://localhost:5000/Logging/MaintenanceLog/'+this.props.match.params.id, user)
+        axios.post('/Logging/MaintenanceLog/'+this.props.match.params.id, user)
         .then(response =>
             this.setState({
                 droneMake: response.data.drone_id.droneMake,
@@ -88,7 +88,7 @@ class EditMaintenanceLog extends Component {
 
         console.log(logmaintenance);
 
-        axios.post('http://localhost:5000/Logging/MaintenanceLog/update/'+this.props.match.params.id, logmaintenance)
+        axios.post('/Logging/MaintenanceLog/update/'+this.props.match.params.id, logmaintenance)
         .then(res => console.log(res.data));
 
     
