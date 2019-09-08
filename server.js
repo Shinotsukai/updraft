@@ -35,16 +35,16 @@ connection.once('open', () => {
 //middleware
 
 app.use(passport.initialize());
-require('./passport')(passport);
+require('./backend/passport')(passport);
 
 
 //routers
 
-const droneinfoRouter = require('./routes/droneinfo.route');
-const userRouter = require('./routes/user.route');
-const batteryInfoRouter = require('./routes/batteryinfo.route');
-const flightLogRouter = require('./routes/flightlog.route');
-const maintenanceRouter = require('./routes/maintenance.route');
+const droneinfoRouter = require('./backend/routes/droneinfo.route');
+const userRouter = require('./backend/routes/user.route');
+const batteryInfoRouter = require('./backend/routes/batteryinfo.route');
+const flightLogRouter = require('./backend/routes/flightlog.route');
+const maintenanceRouter = require('./backend/routes/maintenance.route');
 
 app.use('/api/Fleet/ManageDrone', droneinfoRouter);
 app.use('/api/Fleet/ManageBattery', batteryInfoRouter);
@@ -61,7 +61,7 @@ app.get('/ping', function (req, res) {
     return res.send('pong');
    });
    
-   app.get('/', function (req, res) {
+   app.get('*', function (req, res) {
      res.sendFile(path.join(__dirname, 'build', 'index.html'));
    });
 
