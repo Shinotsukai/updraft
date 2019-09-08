@@ -20,7 +20,7 @@ class DashHome extends Component {
       <div className="card h-100">
         <h5 className="card-header mb-2">Welcome back {user.username}</h5>
 
-        <p className="card-text mb-2" style={{padding: 10}}>Your PFCO Expires on: <strong>DD-MM-YYYY</strong></p>
+        <p className="card-text mb-2" style={{padding: 10}}>Your PFCO Expires on: <strong>DD-MM-YYYY</strong> time to renew</p>
       </div>
     </div>
     <div className="col-sm-7 mb-4">
