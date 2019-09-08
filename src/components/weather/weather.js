@@ -77,7 +77,7 @@ export default class WeatherCheck extends Component {
 
         <div className="container-fluid">
             <div className="row">
-                <div className="col-6">
+                <div className="col-sm-12 col-md-6">
                 <WeatherDisplay 
                 temperature={this.state.temperature}
                 temp_min={this.state.temp_min}
@@ -94,7 +94,7 @@ export default class WeatherCheck extends Component {
                 />
                 </div>
 
-                <div className="col-6">
+                <div className="col-sm-12 col-md-6">
                 <WeatherForm getWeather={this.getWeather}  />
                 </div>
             </div>
