@@ -11,6 +11,7 @@ require('dotenv').config();
 //Server connection
 
 const app = express();
+app.use(express.static(__dirname));
 app.use(express.static(path.join(__dirname, 'build')));
 const port = process.env.PORT || 8080;
 
