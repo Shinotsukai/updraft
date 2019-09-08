@@ -33,7 +33,7 @@ class AddFlightLog extends Component {
 
         const { user } = this.props.auth;
 
-        axios.post('/Fleet/ManageDrone', user)
+        axios.post('/api/Fleet/ManageDrone', user)
         .then(response => {
             if (response.data.length > 0) {
                 this.setState({
@@ -87,7 +87,7 @@ class AddFlightLog extends Component {
 
         console.log(logflight);
 
-        axios.post('/Logging/FlightLog/add', logflight)
+        axios.post('/api/Logging/FlightLog/add', logflight)
         .then(res => console.log(res.data));
 
     

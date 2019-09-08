@@ -49,7 +49,7 @@ class ManageDrone extends Component {
 
     const { user } = this.props.auth;
     
-    axios.post('/Fleet/ManageDrone', user)
+    axios.post('/api/Fleet/ManageDrone', user)
     .then(response => {
       this.setState({dronelists: response.data})
     })

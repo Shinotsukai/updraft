@@ -42,7 +42,7 @@ export default class EditDrone extends Component {
     }
 
     componentDidMount () {
-      axios.get('/Fleet/ManageDrone/'+this.props.match.params.id)
+      axios.get('/api/Fleet/ManageDrone/'+this.props.match.params.id)
       .then(response => {
         this.setState({
           droneMake: response.data.droneMake,

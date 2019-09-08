@@ -47,7 +47,7 @@ class ManageBattery extends Component {
 
     const { user } = this.props.auth;
     
-    axios.post('/Fleet/ManageBattery', user)
+    axios.post('/api/Fleet/ManageBattery', user)
     .then(response => {
       this.setState({batterylists: response.data})
     })

@@ -33,7 +33,7 @@ class AddMaintenanceLog extends Component {
 
         const { user } = this.props.auth;
 
-        axios.post('/Fleet/ManageDrone', user)
+        axios.post('/api/Fleet/ManageDrone', user)
         .then(response => {
             if (response.data.length > 0) {
                 this.setState({
@@ -94,7 +94,7 @@ class AddMaintenanceLog extends Component {
 
         console.log(logmaintenance);
 
-        axios.post('/Logging/MaintenanceLog/add', logmaintenance)
+        axios.post('/api/Logging/MaintenanceLog/add', logmaintenance)
         .then(res => console.log(res.data));
 
     

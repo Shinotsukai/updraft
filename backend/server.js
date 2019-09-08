@@ -46,10 +46,10 @@ const batteryInfoRouter = require('./routes/batteryinfo.route');
 const flightLogRouter = require('./routes/flightlog.route');
 const maintenanceRouter = require('./routes/maintenance.route');
 
-app.use('/Fleet/ManageDrone', droneinfoRouter);
-app.use('/Fleet/ManageBattery', batteryInfoRouter);
-app.use('/Logging/FlightLog', flightLogRouter);
-app.use('/Logging/MaintenanceLog', maintenanceRouter);
+app.use('/api/Fleet/ManageDrone', droneinfoRouter);
+app.use('/api/Fleet/ManageBattery', batteryInfoRouter);
+app.use('/api/Logging/FlightLog', flightLogRouter);
+app.use('/api/Logging/MaintenanceLog', maintenanceRouter);
 
 app.use('/api/users', userRouter)
 
