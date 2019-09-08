@@ -11,7 +11,6 @@ require('dotenv').config();
 //Server connection
 
 const app = express();
-app.use(express.static(__dirname));
 app.use(express.static(path.join(__dirname, 'build')));
 const port = process.env.PORT || 8080;
 
@@ -19,8 +18,6 @@ const port = process.env.PORT || 8080;
 
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json());
-
-
 
 app.use(cors());
 app.use(express.json());
